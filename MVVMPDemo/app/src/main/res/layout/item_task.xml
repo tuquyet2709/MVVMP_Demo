@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.tuquyet.mvvmpdemo.screen.ViewModel.ItemViewModel"
+            />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/item_task"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="@dimen/dp_20"
+            android:layout_margin="@dimen/dp_5"
+            android:layout_weight="1"
+            android:checked="@{viewModel.checked}"
+            />
+
+        <TextView
+            android:id="@+id/textView_title"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_5"
+            android:layout_weight="10"
+            android:text="@{viewModel.title}"
+            tools:text="dd"/>
+
+        <ImageView
+            android:id="@+id/imageView_edit"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="20dp"
+            android:layout_margin="@dimen/dp_5"
+            android:layout_weight="0.5"
+            android:onClick="@{()-> viewModel.onEditTaskClick()}"
+            android:src="@drawable/pen"/>
+
+        <ImageView
+            android:id="@+id/imageView_delete"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="20dp"
+            android:layout_margin="@dimen/dp_5"
+            android:layout_weight="0.5"
+            android:onClick="@{()-> viewModel.onDeleteTaskClick()}"
+            android:src="@drawable/delete"/>
+    </LinearLayout>
+</layout>
